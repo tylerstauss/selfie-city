@@ -24,7 +24,7 @@ module Instagram
 
     def add_photos_to_database(photos)
       photos.each do |photo|
-        if photo['location']
+        if photo['location'] && !photo['location'].nil?
           url = photo['images']['standard_resolution']['url']
           instagram_id = photo['id']
           instagram_text = photo['caption']['text'] if photo['caption']
@@ -35,7 +35,9 @@ module Instagram
           if (result) 
             city = result.city
           end
-          Photo.create(url: url, instagram_id: instagram_id, latitude: latitude, longitude: longitude, city: city)
+
+          @photo = Photo.create(url: url, instagram_id: instagram_id, latitude: latitude, longitude: longitude, city: city)
+          p @photo
         end
       end
     end
