@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html ng-app>
 <html>
 <head>
   <title>SelfieCity</title>
@@ -9,6 +10,10 @@
 <body>
 
 <%= yield %>
+
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular-resource.min.js"></script>
+  <%= javascript_include_tag "application" %>
 
 </body>
 </html>
