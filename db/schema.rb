@@ -11,13 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140630163718) do
+ActiveRecord::Schema.define(:version => 20140630204536) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "photos", :force => true do |t|
     t.string   "url"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "city"
+    t.integer  "city_id"
     t.string   "instagram_id"
     t.text     "instagram_text"
     t.datetime "created_at",     :null => false
