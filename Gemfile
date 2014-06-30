@@ -5,11 +5,33 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg'
+gem 'geocoder'
+gem 'dotenv'
+gem 'geocoder'
 
 
 # Gems used only for assets and not required
 # in production environments by default.
+
+
+group :test, :development do
+  gem 'jasmine'
+  gem 'shoulda-matchers'
+  gem "rspec-rails", "~> 2.0"
+
+end
+
+group :test do
+  gem 'simplecov'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'rack_session_access'
+end
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
