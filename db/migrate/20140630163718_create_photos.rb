@@ -5,6 +5,7 @@ class CreatePhotos < ActiveRecord::Migration
   		t.float :latitude
   		t.float :longitude
   		t.belongs_to :city
+      t.string :city_name
   		t.string :instagram_id
   		t.text :instagram_text
   		
