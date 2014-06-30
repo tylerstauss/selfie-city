@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
 	def index
-		render json: Photo.all
+		render json: Photo.order('created_at desc')
 	end
 
 	def show
