@@ -1,4 +1,7 @@
 <div ng-controller="HomepageController">
 	<h1>Selfies</h1>
-	{{photos}}
+	<div ng-repeat="photo in photos">
+		<img src="{{photo.url}}"> 
+		<p>{{photo.instagram_text}}</p>
+	</div>
 </div>

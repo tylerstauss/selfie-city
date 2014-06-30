@@ -1,3 +1,4 @@
-App.controller('HomepageController', ['$scope', function($scope) {
-  $scope.photos = 'this should be there';
+App.controller('HomepageController', ['$scope', 'Selfie', function($scope, Selfie) {
+  $scope.photos = Selfie.all();
+  $scope.hi = 'hi'
 }]);
