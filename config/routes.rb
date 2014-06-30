@@ -1,5 +1,6 @@
 SelfieCity::Application.routes.draw do
 
-  root :to => 'photos#index'
+
+  root to: 'home#index'
 
 end
