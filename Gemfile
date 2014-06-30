@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'geocoder'
 gem 'dotenv'
-gem 'geocoder'
+gem 'httparty'
 
 
 # Gems used only for assets and not required
