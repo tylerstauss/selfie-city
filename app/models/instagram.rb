@@ -36,7 +36,7 @@ module Instagram
           p '$' * 50
           city = City.find_or_create_by_name(name: city)
           p city
-          @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city)
+          @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
         end
       end
     end

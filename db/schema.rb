@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20140630204536) do
     t.float    "latitude"
     t.float    "longitude"
     t.integer  "city_id"
+    t.string   "city_name"
     t.string   "instagram_id"
     t.text     "instagram_text"
     t.datetime "created_at",     :null => false
