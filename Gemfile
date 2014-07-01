@@ -9,6 +9,8 @@ gem 'pg'
 gem 'geocoder'
 gem 'dotenv'
 gem 'httparty'
+gem 'clockwork'
+gem 'delayed_job_active_record'
 
 
 # Gems used only for assets and not required
