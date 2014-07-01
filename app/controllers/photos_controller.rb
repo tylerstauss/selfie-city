@@ -1,8 +1,6 @@
 class PhotosController < ApplicationController
 	def index
-		client = Instagram::Client.new
-		@results = client.get_posts
-		render json: Photo.all
+		render json: Photo.order('created_at desc')
 	end
 
 	def show
