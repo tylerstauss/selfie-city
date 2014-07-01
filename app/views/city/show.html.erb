@@ -1,0 +1,7 @@
+<h1><%= @city.name %> <%= @photos.count %></h1>
+<% @photos.each do |photo| %>
+	<div class="image">
+		<img src="<%= photo.url %>"> 
+		<p><%= photo.instagram_text %></p>
+	</div>
+<% end %>

@@ -1,0 +1,6 @@
+<h1>All Cities</h1>
+<ul>
+	<% @cities.each do |city| %>
+	<li><%= city.name %> <%= link_to "#{city.photos.count} Selfies", city_path(city)  %></li>
+	<% end %>
+</ul>
