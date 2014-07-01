@@ -9,7 +9,7 @@ module Instagram
     
 
     def get_posts
-      client_id = 'e2e6cab7b5ce4ebab998468c796f81ef'
+      client_id = 'ENV['INSTAGRAM_CLIENT_ID']'
       results = self.class.get("/tags/selfie/media/recent?client_id=#{client_id}",
         :query => { limit: 1}
         )
