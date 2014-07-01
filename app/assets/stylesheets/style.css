@@ -1,0 +1,19 @@
+body {
+	max-width: 1060px;
+	text-align: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.image {
+	margin: 5px auto;
+	padding-bottom: 10%;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+header li {
+	display: inline;
+}
