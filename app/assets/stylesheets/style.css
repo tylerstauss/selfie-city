@@ -1,31 +1,11 @@
-body {
-	max-width: 1060px;
-	text-align: center;
+li {
+	list-style: none;
 }
-
-a {
-	text-decoration: none;
-}
-
-.image {
-	margin: 5px auto;
-	padding-bottom: 10%;
-	text-align: center;
-	border-bottom: 1px solid black;
-}
-
-.image img {
-	width: 50%;
+ul {
+	padding: 0px;
 }
 
 header {
-	border-bottom: 1px solid black;
-}
-
-header li {
-	display: inline;
-	text-align: center;
-}
-.search {
-	margin: 15px;
+	padding: 3%;
+	margin-bottom: 20px;
 }

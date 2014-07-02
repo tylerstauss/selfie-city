@@ -4,7 +4,7 @@ class CommentsController < ApplicationController
 		if comment.save
 			render nothing: true
 		else
-			"Please make sure you have a name and comment".to_json
+			"Please make sure you have a name and comment"
 		end
 	end
 end
