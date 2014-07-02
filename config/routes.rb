@@ -6,8 +6,7 @@ SelfieCity::Application.routes.draw do
     get "/photos/city/:id(.:format)" => "city#show"
   end
 
-  resources :city, :photos 
-
+  resources :city, :photos, :comments
   root to: 'home#index'
 
 end
