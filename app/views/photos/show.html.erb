@@ -2,3 +2,35 @@
 <%= image_tag @photo.url %>
 
 <h3>Comment on this Selfie</h3>
+<div id="comments">
+	<% @comments.each do |comment| %>
+		<div class="single-comment">
+			<p>Name: <%= comment.name %> - <span class="time"> <%= time_ago_in_words(comment.created_at) %></span></p>
+			<p>Comment: <%= comment.content %></p>
+		</div>
+	<% end %>
+
+	<div class="single-comment">
+		<h3>Post a new comment</h3>
+		<p>Name: {{name}} </p>
+		<p>Comment: {{content}}</p>
+	</div>
+	<p id="response"></p>
+	<table class="form">
+  <%= form_for @comment, remote: true do |f| %>
+   
+    <tr>
+      <td class="label"><%= f.label :name %></td>
+      <td class="input"><%= f.text_field :name, :'ng-model'=>'name' %></td>
+    </tr>
+    <tr>
+      <td class="label"><%= f.label :content %></td>
+      <td class="input"><%= f.text_field :content, :'ng-model'=>'content' %></td>
+    </tr>
+    <tr>
+    	<td><%= f.hidden_field :photo_id, :value => @photo.id %></td>
+    	<td><%= f.submit %></td>
+    </tr>
+    <% end %>
+
+</div>
