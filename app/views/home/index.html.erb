@@ -2,6 +2,15 @@
 	<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
 	<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
 	
+	<div>
+		<h3>Top Cities</h3>
+		<% @cities.each do |city| %>
+			<% unless city.name.nil? %>
+				<p><%= link_to city.name, city_path(city) %> - <%= city.count %></p>
+			
+			<% end %>
+		<% end %>
+	</div>
 	<div ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit" class="image">
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
 		<img src="{{photo.url}}"> 

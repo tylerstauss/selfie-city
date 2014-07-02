@@ -33,6 +33,8 @@ module Instagram
           coords = latitude.to_s + ',' + longitude.to_s
           city = get_city(coords)
           city = City.find_or_create_by_name(name: city)
+          city.count += 1
+          city.save
           @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
         end
       end
