@@ -14,6 +14,18 @@ a {
 	border-bottom: 1px solid black;
 }
 
+.image img {
+	width: 50%;
+}
+
+header {
+	border-bottom: 1px solid black;
+}
+
 header li {
 	display: inline;
+	text-align: center;
+}
+.search {
+	margin: 15px;
 }

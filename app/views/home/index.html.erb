@@ -1,10 +1,11 @@
 <div ng-controller="HomepageController">
-	<p>Filter by City: <input type="text" ng-model='cityFilter'></p>
-	<p>Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (10 min, 50 max)</p>
+	<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span>
+	<span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (10 min, 50 max)</span></p>
 	
 	<div ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit" class="image">
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
 		<img src="{{photo.url}}"> 
 		<p class="caption">{{photo.instagram_text}}</p>
+		<a href="/photos/{{photo.id}}">Comments</a>
 	</div>
 </div>

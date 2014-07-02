@@ -6,7 +6,7 @@ class PhotosController < ApplicationController
 	end
 
 	def show
-		render json: Photo.where(id: params[:id])
+		@photo = Photo.find(params[:id])
 	end
 
 end

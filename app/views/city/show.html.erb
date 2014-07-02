@@ -1,7 +1,7 @@
-<h1><%= @city.name %> <%= @photos.count %></h1>
+<h1><%= @city.name %> - <%= @photos.count %> Selfies</h1>
 <% @photos.each do |photo| %>
 	<div class="image">
-		<img src="<%= photo.url %>"> 
+		<%= link_to  image_tag(photo.url), photo_path(photo) %>
 		<p><%= photo.instagram_text %></p>
 	</div>
 <% end %>
