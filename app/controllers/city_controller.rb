@@ -5,7 +5,7 @@ class CityController < ApplicationController
 
 	def show
 		@city = City.find(params[:id])
-		@photos = @city.photos
+		@photos = @city.photos.order('created_at desc')
 	end
 
 end
