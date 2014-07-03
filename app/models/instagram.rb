@@ -34,11 +34,13 @@ module Instagram
           city_name = get_city(coords)
           country = get_country(coords)
           lat_lon = get_city_coords(city_name, country) if city_name
-          city = City.find_or_create_by_name(name: city, country: country, latitude: lat_lon[0], longitude: lat_lon[1])
-          city.count = city.count + 1 unless city.count.nil?
-          city.count = 1 if city.count.nil?
-          city.save
-          @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
+          unless city_name.nil?
+            city = City.find_or_create_by_name(name: city_name, country: country, latitude: lat_lon[0], longitude: lat_lon[1])
+            city.count = city.count + 1 unless city.count.nil?
+            city.count = 1 if city.count.nil?
+            city.save
+            @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
+          end
         end
       end
     end
