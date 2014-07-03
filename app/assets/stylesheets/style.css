@@ -10,8 +10,9 @@ header {
 	margin-bottom: 20px;
 }
 #map-canvas {
-	width: 200px;
-	height: 200px;
+	width: 70%;
+	height: 400px;
+	margin: 0 auto;
 }
 
 #bodyContent img {

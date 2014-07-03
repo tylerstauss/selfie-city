@@ -31,7 +31,7 @@ var CityMap = {
       '</div>'+
       '<div id="bodyContent">'+
       '<p><img src="'+data[i]["url"]+'"></p>'+
-      '<p>'+data[i]["instagram_text"]+'<a href="/photos/'+data[i]["id"]+'">View Full Size Image</a>'+'	</p>'+
+      '<p>'+data[i]["instagram_text"]+'<a href="/photos/'+data[i]["id"]+'"> View Full Size Image</a>'+'	</p>'+
       '</div>'+
       '</div>';
 			var infowindow = new google.maps.InfoWindow({
