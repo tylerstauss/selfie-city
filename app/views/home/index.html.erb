@@ -6,7 +6,7 @@
 		<h3>Top Cities</h3>
 		<% @cities.each do |city| %>
 			<% unless city.name.nil? %>
-				<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.count %></p>
+				<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
 			
 			<% end %>
 		<% end %>
