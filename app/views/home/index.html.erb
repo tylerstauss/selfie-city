@@ -2,8 +2,7 @@
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokEVH5tiunFc3IsSYI6f2ue3JC_n4_h8">
 </script>
 <div ng-controller="HomepageController">
-	<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
-	<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
+	
 	<div class="row">
 		<div class="col-md-4">
 			<h3>Top Cities</h3>
@@ -13,6 +12,10 @@
 				
 				<% end %>
 			<% end %>
+			<div>
+				<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
+				<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
+			</div>
 		</div>
 		<div id="map-wrapper" class='col-md-8'>
 			<div id="map-canvas">

@@ -11,7 +11,6 @@ class CityController < ApplicationController
 	end
 
 	def getphotos
-		p params
 		@city = City.find(params[:id])
 		render json: @city.photos
 	end
