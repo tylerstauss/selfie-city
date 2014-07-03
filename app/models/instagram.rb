@@ -31,12 +31,12 @@ module Instagram
           latitude = photo['location']['latitude']
           longitude = photo['location']['longitude']
           coords = latitude.to_s + ',' + longitude.to_s
-          city = get_city(coords)
+          city_name = get_city(coords)
           country = get_country(coords)
-          lat_lon = get_city_coords(city, country) if city
+          lat_lon = get_city_coords(city_name, country) if city_name
           city = City.find_or_create_by_name(name: city, country: country, latitude: lat_lon[0], longitude: lat_lon[1])
           city.count = city.count + 1 unless city.count.nil?
-          city.count = 1
+          city.count = 1 if city.count.nil?
           city.save
           @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
         end
