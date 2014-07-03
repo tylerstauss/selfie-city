@@ -4,23 +4,24 @@
 <div ng-controller="HomepageController">
 	<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
 	<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
-	
-	<div>
-		<h3>Top Cities</h3>
-		<% @cities.each do |city| %>
-			<% unless city.name.nil? %>
-				<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
-			
+	<div class="row">
+		<div class="col-md-4">
+			<h3>Top Cities</h3>
+			<% @cities.each do |city| %>
+				<% unless city.name.nil? %>
+					<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
+				
+				<% end %>
 			<% end %>
-		<% end %>
-	</div>
-	<div id="map-wrapper">
-		<div id="map-canvas">
+		</div>
+		<div id="map-wrapper" class='col-md-8'>
+			<div id="map-canvas">
+		</div>
 	</div>
 	
 	
-	</div>
-	<div ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit" class="image">
+	<div class="col-md-12 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
+		<h2>Most Recent Selfies</h2>
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
 		<img src="{{photo.url}}"> 
 		<p class="caption">{{photo.instagram_text}}</p>
