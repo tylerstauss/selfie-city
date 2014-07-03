@@ -32,21 +32,35 @@ module Instagram
           longitude = photo['location']['longitude']
           coords = latitude.to_s + ',' + longitude.to_s
           city = get_city(coords)
-          city = City.find_or_create_by_name(name: city)
-          city.count += 1
+          country = get_country(coords)
+          lat_lon = get_city_coords(city, country) if city
+          city = City.find_or_create_by_name(name: city, country: country, latitude: lat_lon[0], longitude: lat_lon[1])
+          city.count = city.count + 1 unless city.count.nil?
+          city.count = 1
           city.save
           @photo = Photo.create(url: url, instagram_id: instagram_id, instagram_text: instagram_text, latitude: latitude, longitude: longitude, city: city, city_name: city.name)
         end
       end
     end
 
-    def get_city(coords)
-        result = Geocoder.search(coords).first 
-        if (result) 
-          city = result.city
-        end
-        city
-      end
+    def get_city_coords(city, country)
+      result = Geocoder.coordinates("#{city} #{country}")
+    end
 
+    def get_city(coords)
+      result = Geocoder.search(coords).first 
+      if (result) 
+        city = result.city
+      end
+      city
+    end
+
+    def get_country(coords)
+      result = Geocoder.search(coords).first 
+      if (result) 
+        country = result.country
+      end
+      country
+    end
   end
 end

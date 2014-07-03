@@ -1,7 +1,20 @@
-<h1><%= @city.name %> - <%= @photos.count %> Selfies</h1>
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokEVH5tiunFc3IsSYI6f2ue3JC_n4_h8">
+</script>
+
+
+<h1><%= @city.name %>, <%= @city.country %> - <%= @photos.count %> Selfies</h1>
+
+<div id="map-canvas">
+	
+</div>
 <% @photos.each do |photo| %>
 	<div class="image">
 		<%= link_to  image_tag(photo.url), photo_path(photo) %>
 		<p><%= photo.instagram_text %></p>
 	</div>
 <% end %>
+<script type="text/javascript">
+  
+  google.maps.event.addDomListener(window, 'load', CityMap.initialize(<%= @city.latitude %>, <%= @city.longitude %>, <%= @city.id %>));
+</script>
