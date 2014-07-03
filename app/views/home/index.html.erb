@@ -6,6 +6,7 @@
 	
 	<div class="row">
 		<div class="col-md-3 sidebar">
+			<%= render '/shared/header' %>
 			<h3>Top Cities</h3>
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>

@@ -11,16 +11,13 @@ var NewMap = {
 	  } else {
 	  	var url = data_url + id
 	  }
-			
 		$.ajax({
 	    url: url,
 	    dataType: 'json', 
 	    success: function(data) {
 	    	NewMap.addMarkers(data, map)
 	    }
-
 		});
-		
 	},
 	addMarkers: function(data, map){
 		var infowindow = new google.maps.InfoWindow();
@@ -33,9 +30,6 @@ var NewMap = {
 				map: map,
 				title: data[i]['city_name']
 			});
-
-			
-
 			google.maps.event.addListener(marker, 'click', (function(marker, i, map) {
         return function() {
 	        var contentString = '<div id="content">'+
@@ -50,15 +44,7 @@ var NewMap = {
           infowindow.open(map, marker);
         }
       })(marker, i, map));
-
-			
-		
-
-  		
 		};
-		
-		
 	}
-
 }
   
