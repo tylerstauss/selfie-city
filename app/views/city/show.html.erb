@@ -3,21 +3,21 @@
 </script>
 
 <div class='row'>
-<h1><%= @city.name %>, <%= @city.country %> - <%= @photos.count %> Selfies</h1>
-<div id="map-wrapper" class='col-md-12'>
-  <div id="map-canvas">
-</div>
-	
-</div>
-<% @photos.each do |photo| %>
-	<div class="image">
-		<%= link_to  image_tag(photo.url), photo_path(photo) %>
-		<p><%= photo.instagram_text %></p>
-	</div>
-<% end %>
+  <h1><%= @city.name %>, <%= @city.country %> - <%= @photos.count %> Selfies</h1>
+  <div id="map-wrapper" class='col-md-12'>
+    <div id="map-canvas">
+  </div>
+  	
+  </div>
+  <% @photos.each do |photo| %>
+  	<div class="image">
+  		<%= link_to  image_tag(photo.url), photo_path(photo) %>
+  		<p><%= photo.instagram_text %></p>
+  	</div>
+  <% end %>
 
 </div>
 <script type="text/javascript">
   
-  google.maps.event.addDomListener(window, 'load', CityMap.initialize(<%= @city.latitude %>, <%= @city.longitude %>, <%= @city.id %>));
+  google.maps.event.addDomListener(window, 'load', NewMap.initialize(<%= @city.latitude %>, <%= @city.longitude %>, <%= @city.id %>, "/photos/city/", 9));
 </script>

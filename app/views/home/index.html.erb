@@ -1,10 +1,11 @@
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokEVH5tiunFc3IsSYI6f2ue3JC_n4_h8">
 </script>
+<%= render '/shared/map' %>
 <div ng-controller="HomepageController">
 	
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3 sidebar">
 			<h3>Top Cities</h3>
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>
@@ -17,13 +18,9 @@
 				<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
 			</div>
 		</div>
-		<div id="map-wrapper" class='col-md-8'>
-			<div id="map-canvas">
-		</div>
-	</div>
 	
 	
-	<div class="col-md-12 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
+	<div class="col-md-9 col-sml-9 col-lg-9 offset3 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
 		<h2>Most Recent Selfies</h2>
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
 		<img src="{{photo.url}}"> 
@@ -34,5 +31,5 @@
 
 <script type="text/javascript">
   
-  google.maps.event.addDomListener(window, 'load', MainMap.initialize);
+  google.maps.event.addDomListener(window, 'load', NewMap.initialize(0, 0, 0, "/photos", 2));
 </script>
