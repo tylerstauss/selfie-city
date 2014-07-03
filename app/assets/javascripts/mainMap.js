@@ -1,12 +1,12 @@
-var CityMap = {
-	initialize: function(latitude, longitude, id){
+var MainMap = {
+	initialize: function(){
 		var mapOptions = {
-    center: new google.maps.LatLng(latitude,longitude),
-    zoom: 9
+    center: new google.maps.LatLng(0,0),
+    zoom: 2
   	};
 	  var map = new google.maps.Map(document.getElementById("map-canvas"),
 	      mapOptions);
-		var url = "/photos/city/" + id;
+		var url = "/photos";
 		$.ajax({
 	    url: url,
 	    dataType: 'json', 
@@ -18,7 +18,7 @@ var CityMap = {
 		
 	},
 	addMarkers: function(data, map){
-		for (var i = 0; i < data.length; i++) {
+		for (var i = 0; i <= data.length; i++) {
 			var myLatlng = new google.maps.LatLng(data[i]['latitude'], data[i]['longitude']);
 			var marker = new google.maps.Marker({
 				position: myLatlng,
