@@ -1,1 +1,1 @@
-window.App = angular.module('SelfieCity', ['ngResource']);
+window.App = angular.module('SelfieCity', ['ngResource','google-maps']);

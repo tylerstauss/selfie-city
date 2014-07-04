@@ -28,3 +28,9 @@ header {
 .recent-photos {
 	/*padding: 2%;*/
 }
+
+#image {
+	float: right;
+}
+
+.angular-google-map-container { height: 200px; }
