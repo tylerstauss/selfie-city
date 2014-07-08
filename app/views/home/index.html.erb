@@ -5,32 +5,42 @@
 <%= render '/shared/map' %>
 <div ng-controller="HomepageController">
 
-	<h3>Top Cities</h3>
+	<div class="city_display">
+		<div class="row-centered">
+			<h2>Top Cities</h2>
+		</div>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-3">
+			<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
+				<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
+			</div>
+		<div class="col-md-9">
 			<ul class="top_cities">
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>
-					<li class="city_display"><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></li>
+					<li class="top_city"><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></li>
 					<br>
 				<% end %>
 			<% end %>
 				</ul>
+			</div>
 
 
 		</div>
-	<div class="col-md-9 col-sml-9 col-lg-9 offset3">
-				<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
-				<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
+		<br>
+	<div class="row-centered">
 				<h2>Most Recent Selfies</h2>
 	</div>
 
-	<div class="col-md-9 col-sml-9 col-lg-9 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
-
+	<div class="col-md-12 col-sml-12 col-lg-12 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
+		<div class="col-md-3">
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
-		<img src="{{photo.url}}">
 		<p class="caption">{{photo.instagram_text}}</p>
 		<a href="/photos/{{photo.id}}">Comments</a>
+		</div>
+		<div class="col-md-9">
+		<img src="{{photo.url}}">
+		</div>
 	</div>
 
 

@@ -42,7 +42,12 @@ body {
 }
 
 .city_display {
-	display: inline-block;
+	margin: 0 20px;
+}
+
+.top_city {
+	display: inline;
+	float:left;
 }
 .top_cities {
     -moz-column-count: 3;
@@ -61,7 +66,7 @@ body {
 	width: 100px;
 }
 .recent-photos {
-	/*padding: 2%;*/
+	padding: 2%;
 }
 
 #image {
