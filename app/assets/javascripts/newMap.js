@@ -2,7 +2,11 @@ var NewMap = {
 	initialize: function(lat, lon, id, data_url, zoom){
 		var mapOptions = {
     center: new google.maps.LatLng(lat,lon),
-    zoom: zoom
+    zoom: zoom,
+    zoomControl: false,
+  	scaleControl: false,
+  	scrollwheel: false,
+  	disableDoubleClickZoom: true
   	};
 	  var map = new google.maps.Map(document.getElementById("map-canvas"),
 	      mapOptions);

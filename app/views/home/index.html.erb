@@ -6,8 +6,9 @@
 <div ng-controller="HomepageController">
 
 	<div class="row">
-		<div class="col-md-3 sidebar">
+		<div class=""
 			<h3>Top Cities</h3>
+		<div class="col-md-3">
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>
 					<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
@@ -23,7 +24,7 @@
 				<h2>Most Recent Selfies</h2>
 	</div>
 
-	<div class="col-md-9 col-sml-9 col-lg-9 offset3 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
+	<div class="col-md-9 col-sml-9 col-lg-9 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
 
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
 		<img src="{{photo.url}}">

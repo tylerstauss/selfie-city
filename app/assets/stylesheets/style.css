@@ -21,6 +21,15 @@ body {
 	color: #D3D3D3;
 }
 
+.header_text {
+	font-size: 6em;
+}
+
+.selfie_total {
+	display: inline-block;
+	font-size: 2em;
+}
+
 
 .sidebar {
 	height: 100%;
