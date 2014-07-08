@@ -5,16 +5,17 @@
 <%= render '/shared/map' %>
 <div ng-controller="HomepageController">
 
+	<h3>Top Cities</h3>
 	<div class="row">
-		<div class=""
-			<h3>Top Cities</h3>
-		<div class="col-md-3">
+		<div class="col-md-12">
+			<ul class="top_cities">
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>
-					<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
-
+					<li class="city_display"><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></li>
+					<br>
 				<% end %>
 			<% end %>
+				</ul>
 
 
 		</div>

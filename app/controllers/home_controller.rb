@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
   	@count = Photo.count
-  	@cities = City.order('count desc').limit(10)
+  	@cities = City.order('count desc').limit(12)
   end
 
   def about
