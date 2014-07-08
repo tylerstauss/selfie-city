@@ -9,27 +9,28 @@ var MainMap = {
 		var url = "/photos";
 		$.ajax({
 	    url: url,
-	    dataType: 'json', 
+	    dataType: 'json',
 	    success: function(data) {
 	    	MainMap.addMarkers(data, map)
 	    }
 
 		});
-		
+
 	},
 	addMarkers: function(data, map){
 		var infowindow = new google.maps.InfoWindow();
 		var marker, i, contentString;
-		
+
 		for (i = 0; i < data.length; i++) {
 			var myLatlng = new google.maps.LatLng(data[i]['latitude'], data[i]['longitude']);
 			marker = new google.maps.Marker({
 				position: myLatlng,
 				map: map,
-				title: data[i]['city_name']
+				icon : 'http://i.imgur.com/Cu8GRwE.png',
+				title: data[i]['city_name'],
 			});
 
-			
+
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i, map) {
         return function() {
@@ -46,14 +47,14 @@ var MainMap = {
         }
       })(marker, i, map));
 
-			
-		
 
-  		
+
+
+
 		};
-		
-		
+
+
 	}
 
 }
-  
+
