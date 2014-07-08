@@ -1,32 +1,32 @@
 <script type="text/javascript"
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCokEVH5tiunFc3IsSYI6f2ue3JC_n4_h8">
 </script>
+<%= render '/shared/header' %>
 <%= render '/shared/map' %>
 <div ng-controller="HomepageController">
-	
+
 	<div class="row">
 		<div class="col-md-3 sidebar">
-			<%= render '/shared/header' %>
 			<h3>Top Cities</h3>
 			<% @cities.each do |city| %>
 				<% unless city.name.nil? %>
 					<p><%= link_to city.name, city_path(city) %>, <%= city.country %> - <%= city.photos.count %></p>
-				
+
 				<% end %>
 			<% end %>
 
-			
+
 		</div>
 	<div class="col-md-9 col-sml-9 col-lg-9 offset3">
 				<p><span class="search">Search Selfies: <input type="text" ng-model='cityFilter'></span></p>
 				<p><span  class="search">Display <input type="number"  min="1" max="50" ng-model="photoLimit"> photos (1 min, 50 max)</span></p>
 				<h2>Most Recent Selfies</h2>
 	</div>
-	
+
 	<div class="col-md-9 col-sml-9 col-lg-9 offset3 recent-photos image" ng-repeat="photo in photos | filter:cityFilter | limitTo : photoLimit">
-		
+
 		<h3><a href="city/{{photo.city_id}}">{{photo.city_name}}</a></h3>
-		<img src="{{photo.url}}"> 
+		<img src="{{photo.url}}">
 		<p class="caption">{{photo.instagram_text}}</p>
 		<a href="/photos/{{photo.id}}">Comments</a>
 	</div>

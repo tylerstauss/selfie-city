@@ -17,6 +17,8 @@ body {
 
 .site_header {
 	font-family: "Georgia", Sans-Serif;
+	background-color: #334D5C;
+	color: #D3D3D3;
 }
 
 
@@ -25,7 +27,7 @@ body {
 }
 #map-wrapper {
 
-  height: 400px;
+  height: 500px;
   padding: 2%;
 }
 #map-canvas {
