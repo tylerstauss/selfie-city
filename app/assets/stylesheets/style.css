@@ -12,7 +12,14 @@ header {
 
 body {
 	background-image: url(http://subtlepatterns.com/patterns/crossword.png);
+	font-family: "Verdana", Sans-Serif;
 }
+
+.site_header {
+	font-family: "Georgia", Sans-Serif;
+}
+
+
 .sidebar {
 	height: 100%;
 }
