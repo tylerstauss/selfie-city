@@ -2,7 +2,11 @@ var NewMap = {
 	initialize: function(lat, lon, id, data_url, zoom){
 		var mapOptions = {
     center: new google.maps.LatLng(lat,lon),
-    zoom: zoom
+    zoom: zoom,
+    zoomControl: false,
+  	scaleControl: false,
+  	scrollwheel: false,
+  	disableDoubleClickZoom: true
   	};
 	  var map = new google.maps.Map(document.getElementById("map-canvas"),
 	      mapOptions);
@@ -13,7 +17,7 @@ var NewMap = {
 	  }
 		$.ajax({
 	    url: url,
-	    dataType: 'json', 
+	    dataType: 'json',
 	    success: function(data) {
 	    	NewMap.addMarkers(data, map)
 	    }
@@ -22,13 +26,14 @@ var NewMap = {
 	addMarkers: function(data, map){
 		var infowindow = new google.maps.InfoWindow();
 		var marker, i, contentString;
-		
+
 		for (i = 0; i < data.length; i++) {
 			var myLatlng = new google.maps.LatLng(data[i]['latitude'], data[i]['longitude']);
 			marker = new google.maps.Marker({
 				position: myLatlng,
 				map: map,
-				title: data[i]['city_name']
+				icon : 'http://i.imgur.com/Cu8GRwE.png',
+				title: data[i]['city_name'],
 			});
 			google.maps.event.addListener(marker, 'click', (function(marker, i, map) {
         return function() {
@@ -47,4 +52,4 @@ var NewMap = {
 		};
 	}
 }
-  
+

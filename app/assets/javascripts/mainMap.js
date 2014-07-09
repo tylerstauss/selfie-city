@@ -1,35 +1,36 @@
 var MainMap = {
 	initialize: function(){
 		var mapOptions = {
-    center: new google.maps.LatLng(0,0),
-    zoom: 2
+    center: new google.maps.LatLng(30,0),
+    zoom: 2,
   	};
 	  var map = new google.maps.Map(document.getElementById("map-canvas"),
 	      mapOptions);
 		var url = "/photos";
 		$.ajax({
 	    url: url,
-	    dataType: 'json', 
+	    dataType: 'json',
 	    success: function(data) {
 	    	MainMap.addMarkers(data, map)
 	    }
 
 		});
-		
+
 	},
 	addMarkers: function(data, map){
 		var infowindow = new google.maps.InfoWindow();
 		var marker, i, contentString;
-		
+
 		for (i = 0; i < data.length; i++) {
 			var myLatlng = new google.maps.LatLng(data[i]['latitude'], data[i]['longitude']);
 			marker = new google.maps.Marker({
 				position: myLatlng,
 				map: map,
-				title: data[i]['city_name']
+				icon : 'http://i.imgur.com/Cu8GRwE.png',
+				title: data[i]['city_name'],
 			});
 
-			
+
 
 			google.maps.event.addListener(marker, 'click', (function(marker, i, map) {
         return function() {
@@ -46,14 +47,14 @@ var MainMap = {
         }
       })(marker, i, map));
 
-			
-		
 
-  		
+
+
+
 		};
-		
-		
+
+
 	}
 
 }
-  
+
